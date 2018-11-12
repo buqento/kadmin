@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Biodatamajelis;
+use app\models\BiodataMajelis;
 use app\models\BiodatamajelisSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,7 +65,7 @@ class BiodatamajelisController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Biodatamajelis();
+        $model = new BiodataMajelis();
 
         $post = Yii::$app->request->post('BiodataMajelis');
         if (Yii::$app->request->isPost) {

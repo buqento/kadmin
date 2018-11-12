@@ -27,11 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'telepon',
                 'email:email',
                 // 'foto:ntext',
-                'pendidikan_id',
+                [
+                    'attribute' => 'pendidikan_id',
+                    'value' => function($data) {
+                        return $data->pendidikan->name;
+                    }
+                ],
                 'pekerjaan',
                 'keterangan',
                 'status_aktif',
-                'created_at',
+                'created_at:datetime',
             ],
         ]) ?>
     </div>

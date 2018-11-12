@@ -30,10 +30,12 @@ class JemaatController extends Controller
         ];
     }
 
-    /**
-     * Lists all Jemaat models.
-     * @return mixed
-     */
+    public function tByJemaat($dari, $ke, $jenis_kelamin, $jemaat_id)
+    {
+        $result = Yii::$app->db->createCommand('SELECT rangeumur_jemaat('.$dari.', '.$ke.', '.$jenis_kelamin.', '.$jemaat_id.')')->queryScalar();
+        return $result;
+    }
+
     public function actionIndex()
     {
         $searchModel = new JemaatSearch();
@@ -42,6 +44,7 @@ class JemaatController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
         ]);
     }
 
@@ -55,6 +58,29 @@ class JemaatController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+
+
+            //laki-laki
+            'r031_16' => $this->tByJemaat(0, 3, 1, $id),
+            'r461_16' => $this->tByJemaat(4, 6, 1, $id),
+            'r791_16' => $this->tByJemaat(7, 9, 1, $id),
+            'r10121_16' => $this->tByJemaat(10, 12, 1, $id),
+            'r13151_16' => $this->tByJemaat(13, 15, 1, $id),
+            'r17451_16' => $this->tByJemaat(17, 45, 1, $id),
+            'r46591_16' => $this->tByJemaat(46, 59, 1, $id),
+            'r60851_16' => $this->tByJemaat(60, 85, 1, $id),
+            'r861201_16' => $this->tByJemaat(86, 120, 1, $id),
+            //perempuan
+            'r032_16' => $this->tByJemaat(0, 3, 2, $id),
+            'r462_16' => $this->tByJemaat(4, 6, 2, $id),
+            'r792_16' => $this->tByJemaat(7, 9, 2, $id),
+            'r10122_16' => $this->tByJemaat(10, 12, 2, $id),
+            'r13152_16' => $this->tByJemaat(13, 15, 2, $id),
+            'r17452_16' => $this->tByJemaat(17, 45, 2, $id),
+            'r46592_16' => $this->tByJemaat(46, 59, 2, $id),
+            'r60852_16' => $this->tByJemaat(60, 85, 2, $id),
+            'r861202_16' => $this->tByJemaat(86, 120, 2, $id),
+            
         ]);
     }
 
@@ -162,7 +188,7 @@ class JemaatController extends Controller
         $type = pathinfo($path, PATHINFO_EXTENSION);
         $data = file_get_contents($path);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-        unlink(Yii::$app->basePath . '/web/' . $path);
+        unlink($path);
         return $base64;
     }
 }

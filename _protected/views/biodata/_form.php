@@ -9,6 +9,7 @@ use app\models\Jemaat;
 use app\models\Sektor;
 use app\models\Cacat;
 use app\models\Unit;
+use app\models\Golongan;
 use kartik\select2\Select2;
 use kartik\date\DatePicker;
 use kartik\depdrop\DepDrop;
@@ -28,11 +29,7 @@ use kartik\depdrop\DepDrop;
             'data' => ['1' => 'Laki-laki', '2' => 'Perempuan'],
         ]);?>
 
-        <?php
-        $pendidikans = Pendidikan::find()->select('name')->indexBy('id')->column();
-        echo $form->field($model, 'pendidikan_id')->widget(Select2::classname(), [
-            'data' => $pendidikans,
-        ]);?>
+        <?= $form->field($model, 'tempat_lahir')->textInput() ?>
 
         <?= $form->field($model, 'tanggal_lahir')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => 'Pilih Tanggal Lahir'],
@@ -43,12 +40,24 @@ use kartik\depdrop\DepDrop;
         ]);
         ?>
 
+        <?php
+        $golongans = Golongan::find()->select('name')->indexBy('id')->column();
+        echo $form->field($model, 'golongan_id')->widget(Select2::classname(), [
+            'data' => $golongans,
+        ]);?>
+
         <?= $form->field($model, 'alamat')->textarea(['row' => 2]) ?>
 
     </div>
 
     <div class="col-md-4">
 
+        <?php
+        $pendidikans = Pendidikan::find()->select('name')->indexBy('id')->column();
+        echo $form->field($model, 'pendidikan_id')->widget(Select2::classname(), [
+            'data' => $pendidikans,
+        ]);?>
+        
         <?php
         $cacats = Cacat::find()->select('name')->indexBy('id')->column();
         echo $form->field($model, 'cacat_id')->widget(Select2::classname(), [
@@ -125,7 +134,7 @@ use kartik\depdrop\DepDrop;
         ]);?>
 
         <div class="form-group">
-            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('<i class="fa fa-save"></i> Simpan', ['class' => 'btn btn-success']) ?>
         </div>
 
     </div>

@@ -33,7 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $jenis_kelamin;
                         }
             ], 
+            'tempat_lahir',
             'tanggal_lahir:date',
+            [
+                'attribute' => 'golongan_id',
+                'value' => function($data){
+                    return $data->golongan->name;
+                }
+            ],
             [
                 'attribute' => 'Umur',
                 'value' => function($data){
@@ -132,5 +139,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at:datetime'
         ],
     ]) ?>
+
+    <p>
+        <?= Html::a('<i class="fa fa-pencil"></i> Ubah', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="fa fa-trash"></i> Hapus', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Yakin akan menghapus data ini?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
 
 </div>

@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Produkkelembagaan;
+use app\models\ProdukKelembagaan;
 use app\models\ProdukkelembagaanSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,7 +65,7 @@ class ProdukkelembagaanController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Produkkelembagaan();
+        $model = new ProdukKelembagaan();
 
         $post = Yii::$app->request->post('ProdukKelembagaan');
         if (Yii::$app->request->isPost) {

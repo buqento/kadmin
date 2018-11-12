@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0
+class ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a
 {
     public static $files = array (
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
@@ -277,6 +277,10 @@ class ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
             ),
         ),
         'H' => 
@@ -854,10 +858,10 @@ class ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInite2cb6d4fbd29cb79c0b4405d676481c0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a::$classMap;
 
         }, null, ClassLoader::class);
     }

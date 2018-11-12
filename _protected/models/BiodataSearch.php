@@ -18,8 +18,8 @@ class BiodataSearch extends Biodata
     public function rules()
     {
         return [
-            [['id', 'pendidikan_id'], 'integer'],
-            [['nama', 'jenis_kelamin', 'tanggal_lahir', 'created_at'], 'safe'],
+            [['id'], 'integer'],
+            [['nama', 'tempat_lahir', 'tanggal_lahir', 'golongan_id', 'created_at'], 'safe'],
         ];
     }
 
@@ -66,11 +66,11 @@ class BiodataSearch extends Biodata
         $query->andFilterWhere([
             'id' => $this->id,
             'tanggal_lahir' => $this->tanggal_lahir,
-            'pendidikan_id' => $this->pendidikan_id,
             'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['like', 'nama', $this->nama])
+            ->andFilterWhere(['like', 'tempat_lahir', $this->tempat_lahir])
             ->andFilterWhere(['like', 'jenis_kelamin', $this->jenis_kelamin]);
 
         return $dataProvider;

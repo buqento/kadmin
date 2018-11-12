@@ -30,10 +30,6 @@ class UnitController extends Controller
         ];
     }
 
-    /**
-     * Lists all Unit models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new UnitSearch();
@@ -45,16 +41,12 @@ class UnitController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Unit model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+
+
         ]);
     }
 

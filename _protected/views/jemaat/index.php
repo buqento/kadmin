@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nama_gereja',
             'alamat',
             'telepon',
-            'email:email',
+            // 'email:email',
             //'gambar:ntext',
             // 'created_at',
 

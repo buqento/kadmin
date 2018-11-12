@@ -2,28 +2,13 @@
 
 namespace app\models;
 
+use yii\base\Model;
+use yii\web\UploadedFile;
 use Yii;
 
-/**
- * This is the model class for table "biodata".
- *
- * @property int $id
- * @property string $nama
- * @property string $jenis_kelamin
- * @property string $tanggal_lahir
- * @property int $pendidikan_id
- * @property int $jemaat_id
- * @property int $sektor_id
- * @property int $unit_id
- * @property int $status_pernikahan
- * @property int $status_hidup
- * @property int $status_baptis
- * @property int $status_sidi
- * @property int $pekerjaan_id
- * @property string $created_at
- */
 class Biodata extends \yii\db\ActiveRecord
 {
+
     /**
      * {@inheritdoc}
      */
@@ -38,10 +23,10 @@ class Biodata extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama', 'jenis_kelamin', 'tanggal_lahir', 'pendidikan_id', 'alamat', 'cacat_id', 'jemaat_id', 'sektor_id', 'unit_id', 'status_pernikahan', 'status_hidup', 'status_baptis', 'status_sidi', 'pekerjaan_id'], 'required'],
+            [['nama', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'golongan_id', 'pendidikan_id', 'alamat', 'cacat_id', 'jemaat_id', 'sektor_id', 'unit_id', 'status_pernikahan', 'status_hidup', 'status_baptis', 'status_sidi', 'pekerjaan_id'], 'required'],
             [['tanggal_lahir', 'created_at'], 'safe'],
             [['pendidikan_id', 'jemaat_id', 'sektor_id', 'unit_id', 'status_pernikahan', 'status_hidup', 'status_baptis', 'status_sidi', 'pekerjaan_id'], 'integer'],
-            [['nama', 'jenis_kelamin'], 'string', 'max' => 255],
+            ['nama', 'string', 'max' => 100],
         ];
     }
 
@@ -54,7 +39,9 @@ class Biodata extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nama' => 'Nama',
             'jenis_kelamin' => 'Jenis Kelamin',
+            'tempat_lahir' => 'Tempat Lahir',
             'tanggal_lahir' => 'Tanggal Lahir',
+            'golongan_id' => 'Golongan Darah',
             'pendidikan_id' => 'Pendidikan Terakhir',
             'alamat' => 'Alamat',
             'cacat_id' => 'Cacat Tubuh',
@@ -68,6 +55,11 @@ class Biodata extends \yii\db\ActiveRecord
             'pekerjaan_id' => 'Pekerjaan',
             'created_at' => 'Created At',
         ];
+    }
+
+    public function getGolongan()
+    {
+        return $this->hasOne(Golongan::className(), ['id' => 'golongan_id']);
     }
 
     public function getPendidikan()

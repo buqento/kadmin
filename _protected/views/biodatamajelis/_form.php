@@ -16,6 +16,17 @@ use kartik\file\FileInput;
 
         <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
+        <?= $form->field($model, 'jabatan')->textInput(['maxlength' => true]) ?>
+        
+        <?php
+        echo $form->field($model, 'jenis_kelamin')->widget(Select2::classname(), [
+            'data' => ['1' => 'Laki-laki', '2' => 'Perempuan'],
+        ]);?>
+
+        <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
+
+        <?= $form->field($model, 'telepon')->textInput(['maxlength' => true]) ?>
+
         <?= $form->field($model, 'tempat_lahir')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'tanggal_lahir')->widget(DatePicker::classname(), [
@@ -26,17 +37,6 @@ use kartik\file\FileInput;
             ]
         ]);
         ?>
-
-        <?php
-        echo $form->field($model, 'jenis_kelamin')->widget(Select2::classname(), [
-            'data' => ['1' => 'Laki-laki', '2' => 'Perempuan'],
-        ]);?>
-
-        <?= $form->field($model, 'jabatan')->textInput(['maxlength' => true]) ?>
-        
-        <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'telepon')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 

@@ -7,18 +7,20 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\BiodataSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Biodata';
+$this->title = 'Biodata Jemaat';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="biodata-index">
 
-    <p>
-        <?= Html::a('Tambah Biodata', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="row">
+        <div class="col-md-3">
+            <?= $this->render('_search', ['model' => $searchModel]) ?>
+        </div>
+    </div>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -40,17 +42,28 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $jenis_kelamin;
                         }
             ], 
+            'tempat_lahir',
             'tanggal_lahir:date',
+            [
+                'attribute' => 'golongan_id',
+                'value' => function($data){
+                    return $data->golongan->name;
+                }
+            ],
             [
                 'attribute' => 'pendidikan_id',
                 'value' => function($data) {
                     return $data->pendidikan->name;
                 }
             ],
-            'alamat',
+            // 'alamat',
             // 'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+        <p>
+
+        <?= Html::a('<i class="fa fa-plus"></i> Tambah', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 </div>

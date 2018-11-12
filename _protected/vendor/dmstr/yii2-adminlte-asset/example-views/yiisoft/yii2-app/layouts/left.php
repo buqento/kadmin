@@ -26,6 +26,7 @@
                         'items' => [
                             ['label' => 'Biodata Jemaat', 'icon' => 'circle-o', 'url' => ['/biodata'],],
                             ['label' => 'Biodata Majelis', 'icon' => 'circle-o', 'url' => ['/biodatamajelis'],],
+                            ['label' => 'Import Biodata', 'icon' => 'circle-o', 'url' => ['/import/upload'],],
                         ]
                     ],
 

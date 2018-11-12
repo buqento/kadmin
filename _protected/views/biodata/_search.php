@@ -15,22 +15,7 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'nama') ?>
-
-    <?= $form->field($model, 'jenis_kelamin') ?>
-
-    <?= $form->field($model, 'tanggal_lahir') ?>
-
-    <?= $form->field($model, 'pendidikan_id') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-    </div>
+    <?= $form->field($model, 'nama')->textInput(['placeholder' => 'Nama jemaat'])->label(false) ?>
 
     <?php ActiveForm::end(); ?>
 

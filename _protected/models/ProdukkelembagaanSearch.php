@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Produkkelembagaan;
+use app\models\ProdukKelembagaan;
 
 /**
  * ProdukkelembagaanSearch represents the model behind the search form of `app\models\Produkkelembagaan`.
  */
-class ProdukkelembagaanSearch extends Produkkelembagaan
+class ProdukkelembagaanSearch extends ProdukKelembagaan
 {
     /**
      * {@inheritdoc}

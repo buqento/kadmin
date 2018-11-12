@@ -1,6 +1,6 @@
 <?php
 use dosamigos\chartjs\ChartJs;
-$this->title = '';
+$this->title = 'Dashboard';
 ?>
 <div class="site-index">
 
@@ -8,7 +8,7 @@ $this->title = '';
 
         <div class="row">
             <div class="col-lg-8">
-                <h2>Grafik Pertumbuhan</h2>
+                <h4>Angka Pertumbuhan</h4>
                 <?php
 
                 $dL = "$r031,$r461,$r791,$r10121,$r13151,$r17451,$r46591,$r60851,$r861201";
@@ -54,53 +54,6 @@ $this->title = '';
                 ]);
                 ?>
 
-                <h3><?= $infoUnit ?></h3>
-                <?php
-                
-                $dLdetail = "$r031_111,$r461_111,$r791_111,$r10121_111,$r13151_111,$r17451_111,$r46591_111,$r60851_111,$r861201_111";
-                $rLdetail = explode(",",$dLdetail);
-                $dPdetail = "$r032_111,$r462_111,$r792_111,$r10122_111,$r13152_111,$r17452_111,$r46592_111,$r60852_111,$r861202_111";
-                $rPdetail = explode(",",$dPdetail);
-
-                ?>
-
-                <?= ChartJs::widget([
-                    'type' => 'bar',
-                    'options' => [
-                        'height' => 227,
-                        'width' => 400
-                    ],
-                    'data' => [
-                        'labels' => ['0-3', '4-6', '7-9', '10-12', '13-15', '17-45', '46-59', '60-85', '> 86'],
-                        'datasets' => [
-                            [
-                                'label' => "Laki-laki",
-                                'backgroundColor' => "#CFD8DC",
-                                'borderColor' => "#ECEFF1",
-                                'pointBackgroundColor' => "rgba(179,181,198,1)",
-                                'pointBorderColor' => "#fff",
-                                'pointHoverBackgroundColor' => "#fff",
-                                'pointHoverBorderColor' => "rgba(179,181,198,1)",
-                                'data' => $rLdetail
-                            ],
-
-                            [
-                                'label' => "Perempuan",
-                                'backgroundColor' => "#F8BBD0",
-                                'borderColor' => "#FCE4EC",
-                                'pointBackgroundColor' => "rgba(179,181,198,1)",
-                                'pointBorderColor' => "#fff",
-                                'pointHoverBackgroundColor' => "#fff",
-                                'pointHoverBorderColor' => "rgba(179,181,198,1)",
-                                'data' => $rPdetail
-                            ],
-                        ]
-                    ]
-                ]);
-                ?>
-
-
-
             </div>
             <div class="col-lg-4">
 
@@ -138,7 +91,7 @@ $this->title = '';
 
                 <!-- Apply any bg-* class to to the info-box to color it -->
                 <div class="info-box bg-lime-active">
-                  <span class="info-box-icon"><i class="fa fa-share-alt"></i></span>
+                  <span class="info-box-icon"><i class="fa fa-map-signs"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Jemaat</span>
                     <span class="info-box-number"><?= $jumlahJemaat ?></span>
@@ -155,7 +108,7 @@ $this->title = '';
                 <!-- /.info-box -->
 
                 <!-- Apply any bg-* class to to the info-box to color it -->
-                <div class="info-box bg-aqua-active">
+                <div class="info-box bg-orange-active">
                   <span class="info-box-icon"><i class="fa fa-share-alt"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Unit Pelayanan</span>
@@ -173,7 +126,7 @@ $this->title = '';
                 <!-- /.info-box -->
 
                 <!-- Apply any bg-* class to to the info-box to color it -->
-                <div class="info-box bg-orange-active">
+                <div class="info-box bg-fuchsia-active">
                   <span class="info-box-icon"><i class="fa fa-heart-o"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Pelayan</span>
@@ -192,7 +145,7 @@ $this->title = '';
 
 
                 <!-- Apply any bg-* class to to the info-box to color it -->
-                <div class="info-box bg-fuchsia-active">
+                <div class="info-box bg-purple-active">
                   <span class="info-box-icon"><i class="fa fa-group"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Jiwa</span>

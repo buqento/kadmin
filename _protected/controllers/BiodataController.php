@@ -153,5 +153,117 @@ class BiodataController extends Controller
         return json_encode(['output'=>'', 'selected'=>'']);
     }
 
+    public function actionImport()
+    {
+        $model = new Biodata();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->upload()) {
+                // file is uploaded successfully
+
+                $inputFile = 'images/biodata.xlsx';
+                try{
+                    $inputFileType = \PHPExcel_IOFactory::identify($inputFile);
+                    $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+                    $objPHPExcel = $objReader->load($inputFile);
+
+                }catch(Exception $e){
+                    die('error');
+                }
+
+                $sheet = $objPHPExcel->getSheet(0);
+                $highestRow = $sheet->getHighestRow();
+                $highestColumn = $sheet->getHighestColumn();
+
+                for($row = 1; $row <= $highestRow; $row++)
+                {
+                    $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColumn.$row, Null, TRUE, FALSE);
+
+                    if($row == 1){
+                        continue;
+                    }
+
+
+                    $biodata->nama = $rowData[0][0];
+                    $biodata->jenis_kelamin = $rowData[0][1];
+                    $biodata->tanggal_lahir = date($rowData[0][2]);
+                    $biodata->pendidikan_id = $rowData[0][3];
+                    $biodata->alamat = $rowData[0][4];
+                    $biodata->cacat_id = $rowData[0][5];
+                    $biodata->jemaat_id = $rowData[0][6];
+                    $biodata->sektor_id = $rowData[0][7];
+                    $biodata->unit_id = $rowData[0][8];
+                    $biodata->status_pernikahan = $rowData[0][9];
+                    $biodata->status_hidup = $rowData[0][10];
+                    $biodata->status_baptis = $rowData[0][11];
+                    $biodata->status_sidi = $rowData[0][12];
+                    $biodata->pekerjaan_id = $rowData[0][13];
+                    $biodata->save();
+
+                    print_r($biodata->getErrors());
+                }
+                die('okay');
+
+            }
+        }
+
+        return $this->render('import', ['model' => $model]);
+    }
+
+    // public function actionImport()
+    // {
+    //     $biodata = new Biodata();
+
+    //     if ($biodata->load(Yii::$app->request->post())) {
+
+    //         $inputFile = 'images/biodata.xlsx';
+    //         try{
+    //             $inputFileType = \PHPExcel_IOFactory::identify($inputFile);
+    //             $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+    //             $objPHPExcel = $objReader->load($inputFile);
+
+    //         }catch(Exception $e){
+    //             die('error');
+    //         }
+
+    //         $sheet = $objPHPExcel->getSheet(0);
+    //         $highestRow = $sheet->getHighestRow();
+    //         $highestColumn = $sheet->getHighestColumn();
+
+    //         for($row = 1; $row <= $highestRow; $row++)
+    //         {
+    //             $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColumn.$row, Null, TRUE, FALSE);
+
+    //             if($row == 1){
+    //                 continue;
+    //             }
+
+
+    //             $biodata->nama = $rowData[0][0];
+    //             $biodata->jenis_kelamin = $rowData[0][1];
+    //             $biodata->tanggal_lahir = date($rowData[0][2]);
+    //             $biodata->pendidikan_id = $rowData[0][3];
+    //             $biodata->alamat = $rowData[0][4];
+    //             $biodata->cacat_id = $rowData[0][5];
+    //             $biodata->jemaat_id = $rowData[0][6];
+    //             $biodata->sektor_id = $rowData[0][7];
+    //             $biodata->unit_id = $rowData[0][8];
+    //             $biodata->status_pernikahan = $rowData[0][9];
+    //             $biodata->status_hidup = $rowData[0][10];
+    //             $biodata->status_baptis = $rowData[0][11];
+    //             $biodata->status_sidi = $rowData[0][12];
+    //             $biodata->pekerjaan_id = $rowData[0][13];
+    //             $biodata->save();
+
+    //             print_r($biodata->getErrors());
+    //         }
+    //         die('okay');
+
+    //         // return $this->redirect(['index']);
+    //     }
+
+    //     return $this->render('import');
+    // }
 
 }

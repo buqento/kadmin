@@ -58,20 +58,7 @@ class SiteController extends Controller
         ];
     }
 
-    public function infoUnit($jemaat_id, $sektor_id)
-    {
-        $infoUnit = Yii::$app->db->createCommand('SELECT name FROM Unit WHERE jemaat_id='.$jemaat_id.' AND sektor_id='.$sektor_id.'')->queryScalar();
-        return $infoUnit;
-
-    }
-
-    public function tByAll($dari, $ke, $jenis_kelamin, $jemaat_id, $sektor_id, $unit_id)
-    {
-        $result = Yii::$app->db->createCommand('SELECT rangeumur_detail('.$dari.', '.$ke.', '.$jenis_kelamin.', '.$jemaat_id.', '.$sektor_id.', '.$unit_id.')')->queryScalar();
-        return $result;
-    }
-
-    public function tByJenkel($dari, $ke, $jenis_kelamin)
+    public function tByAll($dari, $ke, $jenis_kelamin)
     {
         $result = Yii::$app->db->createCommand('SELECT rangeumur('.$dari.', '.$ke.', '.$jenis_kelamin.')')->queryScalar();
         return $result;
@@ -96,45 +83,24 @@ class SiteController extends Controller
             'jumlahPerempuan' => $jumlahPerempuan,
             'jumlahPelayan' => $jumlahPelayan,
 
-            'infoUnit' => $this->infoUnit(1,1),
-
-            'r031_111' => $this->tByAll(0, 3, 1, 1, 1, 1),
-            'r032_111' => $this->tByAll(0, 3, 1, 1, 1, 1),
-            'r461_111' => $this->tByAll(4, 6, 1, 1, 1, 1),
-            'r462_111' => $this->tByAll(4, 6, 2, 1, 1, 1),
-            'r791_111' => $this->tByAll(7, 9, 1, 1, 1, 1),
-            'r792_111' => $this->tByAll(7, 9, 2, 1, 1, 1),
-            'r10121_111' => $this->tByAll(10, 12, 1, 1, 1, 1),
-            'r10122_111' => $this->tByAll(10, 12, 2, 1, 1, 1),
-            'r13151_111' => $this->tByAll(13, 15, 1, 1, 1, 1),
-            'r13152_111' => $this->tByAll(13, 15, 2, 1, 1, 1),
-            'r17451_111' => $this->tByAll(17, 45, 1, 1, 1, 1),
-            'r17452_111' => $this->tByAll(17, 45, 1, 1, 1, 1),
-            'r46591_111' => $this->tByAll(46, 59, 1, 1, 1, 1),
-            'r46592_111' => $this->tByAll(46, 59, 2, 1, 1, 1),
-            'r60851_111' => $this->tByAll(60, 85, 1, 1, 1, 1),
-            'r60852_111' => $this->tByAll(60, 85, 2, 1, 1, 1),
-            'r861201_111' => $this->tByAll(86, 120, 1, 1, 1, 1),
-            'r861202_111' => $this->tByAll(86, 120, 2, 1, 1, 1),
-
-            'r031' => $this->tByJenkel(0, 3, 1),
-            'r032' => $this->tByJenkel(0, 3, 1),
-            'r461' => $this->tByJenkel(4, 6, 1),
-            'r462' => $this->tByJenkel(4, 6, 2),
-            'r791' => $this->tByJenkel(7, 9, 1),
-            'r792' => $this->tByJenkel(7, 9, 2),
-            'r10121' => $this->tByJenkel(10, 12, 1),
-            'r10122' => $this->tByJenkel(10, 12, 2),
-            'r13151' => $this->tByJenkel(13, 15, 1),
-            'r13152' => $this->tByJenkel(13, 15, 2),
-            'r17451' => $this->tByJenkel(17, 45, 1),
-            'r17452' => $this->tByJenkel(17, 45, 1),
-            'r46591' => $this->tByJenkel(46, 59, 1),
-            'r46592' => $this->tByJenkel(46, 59, 2),
-            'r60851' => $this->tByJenkel(60, 85, 1),
-            'r60852' => $this->tByJenkel(60, 85, 2),
-            'r861201' => $this->tByJenkel(86, 120, 1),
-            'r861202' => $this->tByJenkel(86, 120, 2)
+            'r031' => $this->tByAll(0, 3, 1),
+            'r032' => $this->tByAll(0, 3, 1),
+            'r461' => $this->tByAll(4, 6, 1),
+            'r462' => $this->tByAll(4, 6, 2),
+            'r791' => $this->tByAll(7, 9, 1),
+            'r792' => $this->tByAll(7, 9, 2),
+            'r10121' => $this->tByAll(10, 12, 1),
+            'r10122' => $this->tByAll(10, 12, 2),
+            'r13151' => $this->tByAll(13, 15, 1),
+            'r13152' => $this->tByAll(13, 15, 2),
+            'r17451' => $this->tByAll(17, 45, 1),
+            'r17452' => $this->tByAll(17, 45, 1),
+            'r46591' => $this->tByAll(46, 59, 1),
+            'r46592' => $this->tByAll(46, 59, 2),
+            'r60851' => $this->tByAll(60, 85, 1),
+            'r60852' => $this->tByAll(60, 85, 2),
+            'r861201' => $this->tByAll(86, 120, 1),
+            'r861202' => $this->tByAll(86, 120, 2)
 
         ]);
     }
