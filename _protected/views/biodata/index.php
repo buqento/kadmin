@@ -17,7 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $this->render('_search', ['model' => $searchModel]) ?>
         </div>
     </div>
+    <p>
 
+        <?= Html::a('<i class="fa fa-plus"></i> Tambah Data', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         // 'filterModel' => $searchModel,
@@ -62,8 +65,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-        <p>
 
-        <?= Html::a('<i class="fa fa-plus"></i> Tambah', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 </div>

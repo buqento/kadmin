@@ -6,12 +6,21 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Biodata */
 
-$this->title = 'Detail Biodata';
+$this->title = 'Detail';
 $this->params['breadcrumbs'][] = ['label' => 'Biodata', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="biodata-view">
-
+    <p>
+        <?= Html::a('<i class="fa fa-pencil"></i> Ubah', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="fa fa-trash"></i> Hapus', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Yakin akan menghapus data ini?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -139,16 +148,5 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at:datetime'
         ],
     ]) ?>
-
-    <p>
-        <?= Html::a('<i class="fa fa-pencil"></i> Ubah', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('<i class="fa fa-trash"></i> Hapus', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Yakin akan menghapus data ini?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
 </div>

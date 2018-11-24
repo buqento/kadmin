@@ -18,6 +18,9 @@
                     //PRODUK KELEMBAGAAN
                     ['label' => 'Produk Kelembagaan', 'icon' => 'circle-o', 'url' => ['/produkkelembagaan'],],
 
+                    //Wirausaha
+                    ['label' => 'Kewirausahaan', 'icon' => 'circle-o', 'url' => ['/wirausaha'],],
+
                     //BIODATA
                     [
                         'label' => 'Biodata', 
@@ -26,7 +29,7 @@
                         'items' => [
                             ['label' => 'Biodata Jemaat', 'icon' => 'circle-o', 'url' => ['/biodata'],],
                             ['label' => 'Biodata Majelis', 'icon' => 'circle-o', 'url' => ['/biodatamajelis'],],
-                            ['label' => 'Import Biodata', 'icon' => 'circle-o', 'url' => ['/import/upload'],],
+                            // ['label' => 'Import Biodata', 'icon' => 'circle-o', 'url' => ['/import/upload'],],
                         ]
                     ],
 
@@ -39,6 +42,8 @@
                             ['label' => 'Jemaat', 'icon' => 'circle-o', 'url' => ['/jemaat']],
                             ['label' => 'Sektor', 'icon' => 'circle-o', 'url' => ['/sektor']],
                             ['label' => 'Unit', 'icon' => 'circle-o', 'url' => ['/unit']],
+                            ['label' => 'Kategori Usaha', 'icon' => 'circle-o', 'url' => ['/kategoriusaha']],
+                            ['label' => 'Usaha', 'icon' => 'circle-o', 'url' => ['/usaha']],
                         ]
                     ],
 

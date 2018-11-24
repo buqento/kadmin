@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Biodatamajelis */
 
-$this->title = 'Tambah Biodata Majelis';
+$this->title = 'Tambah Data';
 $this->params['breadcrumbs'][] = ['label' => 'Biodata Majelis', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

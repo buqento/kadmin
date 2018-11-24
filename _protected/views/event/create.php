@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
-$this->title = 'Tambah Event';
+$this->title = 'Tambah Data';
 $this->params['breadcrumbs'][] = ['label' => 'Event', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

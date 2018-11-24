@@ -48,6 +48,7 @@ class ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a
         ),
         'd' => 
         array (
+            'dosamigos\\tinymce\\' => 18,
             'dosamigos\\ckeditor\\' => 19,
             'dosamigos\\chartjs\\' => 18,
             'dmstr\\' => 6,
@@ -168,6 +169,10 @@ class ComposerStaticInit138c36c3e7e343497fb7d3706a5f4f9a
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base/src',
+        ),
+        'dosamigos\\tinymce\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-tinymce-widget/src',
         ),
         'dosamigos\\ckeditor\\' => 
         array (

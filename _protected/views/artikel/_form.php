@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
-use dosamigos\ckeditor\CKEditor;
+use dosamigos\tinymce\TinyMce;
 
 use app\models\Kategori;
 
@@ -18,10 +18,18 @@ use app\models\Kategori;
 
     <?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'konten')->widget(CKEditor::className(), [
-        'options' => ['rows' => 3],
-        'preset' => 'basic'
-    ]) ?>
+    <?= $form->field($model, 'konten')->widget(TinyMce::className(), [
+        'options' => ['rows' => 10],
+        'language' => 'en',
+        'clientOptions' => [
+            'plugins' => [
+                "advlist autolink lists link charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
 
     <?php
     $kategoris = Kategori::find()->select('name')->indexBy('id')->column();
