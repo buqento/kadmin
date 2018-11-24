@@ -3,13 +3,13 @@
 return [
     'class' => 'yii\db\Connection',
 
-    'dsn' => 'mysql:host=localhost;dbname=klasisambon',
-    'username' => 'root',
-    'password' => '',
+    // 'dsn' => 'mysql:host=localhost;dbname=klasisambon',
+    // 'username' => 'root',
+    // 'password' => '',
 
-    // 'dsn' => 'mysql:host=localhost;dbname=dpmptspk_klasis',
-    // 'username' => 'dpmptspk_klasis',
-    // 'password' => 'manggureb3',
+    'dsn' => 'mysql:host=localhost;dbname=dpmptspk_klasis',
+    'username' => 'dpmptspk_klasis',
+    'password' => 'manggureb3',
 
     'charset' => 'utf8',
 
