@@ -20,13 +20,12 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "kartik-v/yii2-widget-select2": "@dev",
-        "2amigos/yii2-ckeditor-widget": "*",
         "kartik-v/yii2-widget-fileinput": "@dev",
         "kartik-v/yii2-widget-datetimepicker": "*",
         "2amigos/yii2-chartjs-widget": "~2.0",
         "kartik-v/yii2-widget-datepicker": "dev-master",
         "kartik-v/yii2-widget-depdrop": "@dev",
-        "phpoffice/phpexcel": "dev-develop"
+        "2amigos/yii2-tinymce-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
