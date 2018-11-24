@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Kategoriusaha;
+use app\models\KategoriUsaha;
 use app\models\KategoriusahaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -64,7 +64,7 @@ class KategoriusahaController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Kategoriusaha();
+        $model = new KategoriUsaha();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -118,7 +118,7 @@ class KategoriusahaController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Kategoriusaha::findOne($id)) !== null) {
+        if (($model = KategoriUsaha::findOne($id)) !== null) {
             return $model;
         }
 
