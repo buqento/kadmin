@@ -47,18 +47,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ], 
             'tempat_lahir',
             'tanggal_lahir:date',
-            [
-                'attribute' => 'golongan_id',
-                'value' => function($data){
-                    return $data->golongan->name;
-                }
-            ],
-            [
-                'attribute' => 'pendidikan_id',
-                'value' => function($data) {
-                    return $data->pendidikan->name;
-                }
-            ],
+            // [
+            //     'attribute' => 'golongan_id',
+            //     'value' => function($data){
+            //         return $data->golongan->name;
+            //     }
+            // ],
+            // [
+            //     'attribute' => 'pendidikan_id',
+            //     'value' => function($data) {
+            //         return $data->pendidikan->name;
+            //     }
+            // ],
             // 'alamat',
             // 'created_at',
 

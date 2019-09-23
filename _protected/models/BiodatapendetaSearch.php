@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Biodata;
+use app\models\Biodatapendeta;
 
 /**
- * BiodataSearch represents the model behind the search form of `app\models\Biodata`.
+ * BiodatapendetaSearch represents the model behind the search form of `app\models\Biodatapendeta`.
  */
-class BiodataSearch extends Biodata
+class BiodatapendetaSearch extends Biodatapendeta
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class BiodataSearch extends Biodata
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['nama', 'tempat_lahir', 'tanggal_lahir', 'golongan_id', 'created_at'], 'safe'],
+            [['id', 'jenis_kelamin'], 'integer'],
+            [['nama', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'created_at'], 'safe'],
         ];
     }
 
@@ -41,17 +41,12 @@ class BiodataSearch extends Biodata
      */
     public function search($params)
     {
-        $query = Biodata::find();
+        $query = Biodatapendeta::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => [
-                'defaultOrder' => [
-                    'created_at' => SORT_DESC
-                ]
-            ]
         ]);
 
         $this->load($params);
@@ -63,24 +58,16 @@ class BiodataSearch extends Biodata
         }
 
         // grid filtering conditions
-        if(Yii::$app->user->identity->id == 1){
-            $query->andFilterWhere([
-                'id' => $this->id,
-                'tanggal_lahir' => $this->tanggal_lahir,
-                'created_at' => $this->created_at
-            ]);
-        }else{
-            $query->andFilterWhere([
-                'id' => $this->id,
-                'tanggal_lahir' => $this->tanggal_lahir,
-                'created_at' => $this->created_at,
-                'jemaat_id' => Yii::$app->user->identity->id
-            ]);    
-        }
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'tanggal_lahir' => $this->tanggal_lahir,
+            'jenis_kelamin' => $this->jenis_kelamin,
+            'created_at' => $this->created_at,
+        ]);
 
         $query->andFilterWhere(['like', 'nama', $this->nama])
             ->andFilterWhere(['like', 'tempat_lahir', $this->tempat_lahir])
-            ->andFilterWhere(['like', 'jenis_kelamin', $this->jenis_kelamin]);
+            ->andFilterWhere(['like', 'alamat', $this->alamat]);
 
         return $dataProvider;
     }

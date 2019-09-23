@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\EventSearch */
+/* @var $searchModel app\models\BiodatapendetaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Agenda';
+$this->title = 'Biodata Pendeta';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="event-index">
+<div class="biodatapendeta-index">
 
     <p>
         <?= Html::a('Tambah Data', ['create'], ['class' => 'btn btn-success']) ?>
@@ -23,16 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id',
-            [
-                'attribute' => 'jemaat_id',
-                'value' => function($data) {
-                    return $data->jemaat->nama_jemaat;
-                }
-            ],
-            'judul',
-            'tanggal_jam:datetime',
-            'tempat',
-            // 'keterangan:ntext',
+            'nama',
+            'tempat_lahir',
+            'tanggal_lahir:date',
+            'alamat',
+            // 'jenis_kelamin',
             // 'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],

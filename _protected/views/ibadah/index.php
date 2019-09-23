@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\EventSearch */
+/* @var $searchModel app\models\IbadahSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Agenda';
+$this->title = 'Ibadah';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="event-index">
+<div class="ibadah-index">
 
     <p>
         <?= Html::a('Tambah Data', ['create'], ['class' => 'btn btn-success']) ?>
@@ -24,15 +24,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id',
             [
-                'attribute' => 'jemaat_id',
-                'value' => function($data) {
-                    return $data->jemaat->nama_jemaat;
+                'attribute' => 'pelayan_id',
+                'value' => function($data){
+                    return $data->pendeta->nama;
                 }
             ],
-            'judul',
-            'tanggal_jam:datetime',
-            'tempat',
-            // 'keterangan:ntext',
+            [
+                'attribute' => 'gereja_id',
+                'value' => function($data){
+                    return $data->gereja->name;
+                }
+            ],
+            'waktu',
+            'deskripsi',
             // 'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],

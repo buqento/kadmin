@@ -42,7 +42,7 @@ use kartik\depdrop\DepDrop;
 
         <?php
         $golongans = Golongan::find()->select('name')->indexBy('id')->column();
-        print_r($golongans);
+
         echo $form->field($model, 'golongan_id')->widget(Select2::classname(), [
             'data' => $golongans,
         ]);?>
